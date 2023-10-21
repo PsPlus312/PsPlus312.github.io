@@ -41,6 +41,18 @@
         box-shadow: 0 0 0 0 ragb(0, 0, 0, 0.2);
         filter: brightness(1);
       }
+
+       .console {
+         display: none;
+         flex-direction: column;
+         align-items: center;
+         text-align: center;
+       }
+
+       .console input {
+         margin: 10px;
+         padding: 5px;
+       }
     </style>
   </head>
   <body>
@@ -48,6 +60,32 @@
       <h1>Ps+ Studio</h1>
       <h2>An amateur music and game production team</h2>
       <a href="browse.html" class="custom-button">ReadMore</a>
+      <button class="custom-button" id="showConsole">DisplayConsole</button>
     </div>
+
+    <div class="console" id="console">
+      <input type="text" id="inputField" placeholder="CODE">
+      <button id="sendButton">Send</button>
+    </div>
+
+    <audio id="audioPlayer" contraols>
+      <source src="Lockmeup.mp3" type="lockmeup">
+    </audio>
+
+    <script>
+      document.getElementById("showConsole").addEventListener("click", function() {
+        document.getElementById("console").style.display ="flex";
+      });
+
+      document.getELementById("sendButton").addEventListener("click", function() {
+        var inputField = document.getElementById("inputField");
+        var audioPlayer = document.getElementById("audioPlayer");
+        if (inputField.value === "726928") {
+          audioPlayer.play();
+        } else {
+          alert("ERROR");
+        }
+      });
+    </script>
   </body>
 </html>
